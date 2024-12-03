@@ -49,10 +49,13 @@ O projeto propõe a integração com uma ou mais APIs externas utilizando o Spri
 ## 7. Protótipo Básico
 
 1. **Tela de resultados**
-   ![Imagem do clima]("C:\Users\abdie\Pictures\Screenshots\Captura de tela 2024-12-02 234425.png")
+  ![Captura de tela](file:///C:/Users/abdie/Pictures/Screenshots/Captura%20de%20tela%202024-12-02%20234425.png)
+
 
 3. **Tela de busca**
-   ![Imagem do clima]("C:\Users\abdie\Pictures\Screenshots\Captura de tela 2024-12-02 234718.png")
+![Captura de tela](file:///C:/Users/abdie/Pictures/Screenshots/Captura%20de%20tela%202024-12-02%20234718.png)
+
+
 
 
 ## 8. Considerações Finais
