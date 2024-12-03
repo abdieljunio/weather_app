@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado da Previsão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Garante que o corpo ocupe toda a altura da janela */
+      background: linear-gradient(to bottom, #4682B4, #ffffff); /* Gradiente contínuo */
+      background-attachment: fixed; /* Fixa o fundo para evitar movimento com o scroll */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0;
+      color: #082260; /* Azul mais profundo para contraste */
+    }
+
+    p {
+      font-size: 25px;
+      margin: 5px 0;
+      color: #2C5364;
+    }
+
+    img {
+      margin: 10px auto;
+      max-width: 100px;
+    }
+
+    .error-message {
+      margin-top: 20px;
+      color: red; /* Destaque para mensagens de erro */
+      font-weight: bold;
+    }
+
+    span {
+      font-weight: bold;
+      color: #082260; /* Azul escuro para destacar os valores */
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background: #2C5364; /* Azul profundo */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1F394A; /* Tom mais escuro no hover */
+    }
+  </style>
+</head>
+<body>
+<h1>Previsão do tempo para <span th:text="${cidade}"></span></h1>
+<p>Temperatura: <span th:text="${temperatura}"></span>°C</p>
+<p>Descrição do clima: <span th:text="${descricaoClima}"></span></p>
+<img th:src="@{${iconeClima}}" alt="Ícone do clima"/>
+<p>Umidade: <span th:text="${umidade}"></span>%</p>
+<p>Vento: <span th:text="${vento}"></span> mph</p>
+
+<!-- Bloco para mensagem de erro -->
+<div th:if="${error != null}" class="error-message">
+  <p th:text="${error}">Erro ao carregar os dados.</p>
+</div>
+
+<!-- Botão Voltar -->
+<button onclick="history.back()">Voltar</button>
+</body>
+</html>

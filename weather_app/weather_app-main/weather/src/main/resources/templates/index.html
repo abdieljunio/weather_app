@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Previsão do Tempo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Garante que o corpo ocupe toda a altura da janela */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #4682B4, #ffffff); /* Gradiente contínuo */
+            background-attachment: fixed; /* Fixa o fundo para evitar movimento com o scroll */
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #005f99; /* Azul mais escuro para contraste */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 16px;
+            color: #005f99;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #87CEFA;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #005f99; /* Azul forte */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #003f66; /* Tom mais escuro no hover */
+        }
+
+        .error-message {
+            color: red; /* Torna o texto da mensagem de erro vermelho */
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form action="/resultado" method="post">
+    <h1>Consulta de Previsão do Tempo</h1>
+    <label for="nomeCidade">Digite o nome da cidade:</label>
+    <input type="text" id="nomeCidade" name="nomeCidade" required>
+    <button type="submit">Consultar</button>
+    <!-- Mensagem de erro -->
+    <div th:if="${error != null}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+</form>
+</body>
+</html>
+
